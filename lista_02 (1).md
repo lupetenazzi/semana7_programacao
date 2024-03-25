@@ -263,6 +263,35 @@ Classe FormaGeometrica:
 
 ```
 
+resposta:
+```
+
+Classe Retangulo (herda de FormaGeometrica):
+    Atributos:
+        - base
+        - altura
+
+    Método Construtor(cor, base, altura):
+        Chama o construtor da classe pai (FormaGeometrica) passando a cor como parâmetro.
+        Define os valores dos atributos base e altura
+
+    Método CalcularArea():
+        Retorna base * altura.
+
+
+Classe Circulo (herda de FormaGeometrica):
+    Atributos:
+        - raio
+
+    Método Construtor(cor, raio):
+        Chama o construtor da classe pai (FormaGeometrica) passando a cor como parâmetro.
+        Define o valor do atributo raio com o valor passado como parâmetro.
+
+    Método CalcularArea():
+        Retorna π * raio^2.
+
+```
+
 ______
 
 **9)** Você foi contratado(a) como estagiário(a) da Tesla e está participando do desenvolvimento de um programa para simular o desempenho de um carro elétrico em uma corrida. Seu objetivo é determinar em quantos minutos o carro levará para completar uma determinada distância, levando em consideração uma velocidade inicial e uma taxa de aceleração constante. No entanto, você deseja garantir que o carro não exceda uma velocidade máxima nem que a corrida demore mais do que um tempo máximo. Implemente a lógica dessa simulação em pseudocódigo.
@@ -270,6 +299,41 @@ ______
 Considere a fórumla de atualização velocidade:
 ```
     velocidade = velocidadeInicial + aceleracao*tempo
+```
+
+```
+Algoritmo Simulador_Carro_Elétrico
+    // Entradas
+    velocidade_inicial = Ler_Velocidade_Inicial()
+    taxa_aceleracao = Ler_Taxa_Aceleracao()
+    distancia = Ler_Distancia()
+    velocidade_maxima = Ler_Velocidade_Maxima()
+    tempo_maximo = Ler_Tempo_Maximo()
+
+    // Variáveis
+    velocidade_atual = velocidade_inicial
+    tempo = 0
+    distancia_percorrida = 0
+
+    Enquanto (distancia_percorrida < distancia) E (tempo <= tempo_maximo) E (velocidade_atual < velocidade_maxima) faça
+        // Calcular nova velocidade e distância percorrida
+        velocidade_atual = velocidade_atual + taxa_aceleracao * tempo
+        distancia_percorrida = distancia_percorrida + velocidade_atual * tempo
+        tempo = tempo + 1 // Incrementar tempo em minutos
+    Fim Enquanto
+
+    Se (distancia_percorrida >= distancia) Então
+        Escrever "O carro completou a corrida em ", tempo, " minutos."
+    Senão
+        Se (tempo > tempo_maximo) Então
+            Escrever "O carro não completou a corrida dentro do tempo máximo permitido."
+        Senão
+            Escrever "O carro atingiu a velocidade máxima permitida."
+        Fim Se
+    Fim Se
+
+FimAlgoritmo
+
 ```
 
 ______
